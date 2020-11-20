@@ -12,6 +12,12 @@
 
 <p>Name: <%= @cocktail.name %></p>
 
+  <% if @article.photo.present? %>
+    <%= cl_image_tag @article.photo.key, width: 400, crop: :fill %>
+  <% else %>
+    <%= image_tag 'placeholder.png', width: 400 %>
+  <% end %>
+
 <ul class="list-group">
   <% @cocktail.doses.each do |dose| %>
     <li class="list-group-item"> Dose: <%= dose.description %></li>
